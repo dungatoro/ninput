@@ -9,3 +9,11 @@ pub fn ninput(message: &str) -> String {
     input.pop();
     input
 }
+
+#[macro_export]
+macro_rules! input {
+    ($($arg:tt)*) => {{
+        let msg = std::fmt::format(std::format_args!($($arg)*));
+        ninput(msg.as_str())
+    }}
+}
